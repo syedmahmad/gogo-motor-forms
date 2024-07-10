@@ -1,4 +1,26 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# GOGO Form Management App
+
+## About the Project
+
+This is the user interface for our GOGO Form Management! We can control the all forms here. For example, inspection form request etc. It was created with Create Next App, uses styled components and Material UI. Reason of using material UI is: we already bought https://mantisdashboard.io/ theme which is build on top of MUI.
+
+## Built With
+
+- [Create Next App](https://nextjs.org/docs/pages/api-reference/create-next-app)
+- [Next](https://nextjs.org/)
+- [Material User Interface](https://mui.com/)
+- [styled-components](https://styled-components.com/)
+
+## Pre requisite
+
+You need minimun node v18.17.0 as we are using latest versions for all modules.
+
+## Available Scripts
+
+In the project directory, you can run:
+
+### `npm install`
+Install the app dependencies.
 
 ## Getting Started
 
