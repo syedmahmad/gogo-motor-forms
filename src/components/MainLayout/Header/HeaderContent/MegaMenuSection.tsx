@@ -25,7 +25,7 @@ import MainCard from '../../../MainCard';
 import Dot from '../../../@extended/Dot';
 import IconButton from '../../../@extended/IconButton';
 import Transitions from '../../../@extended/Transitions';
-import { DRAWER_WIDTH } from '../../../../config';
+import { DRAWER_WIDTH } from '../../../../types/config';
 
 // assets
 import { ArrowRightOutlined, WindowsOutlined } from '@ant-design/icons';

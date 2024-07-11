@@ -1,6 +1,7 @@
 export type FontFamily = `'Inter', sans-serif` | `'Poppins', sans-serif` | `'Roboto', sans-serif` | `'Public Sans', sans-serif`;
 export type PresetColor = 'default' | 'theme1' | 'theme2' | 'theme3' | 'theme4' | 'theme5' | 'theme6' | 'theme7' | 'theme8';
-export type I18n = 'en' | 'fr' | 'ro' | 'zh'; // 'en' - English, 'fr' - French, 'ro' - Romanian, 'zh' - Chinese
+
+export const DRAWER_WIDTH = 260;
 
 export enum ThemeMode {
   LIGHT = 'light',
@@ -34,16 +35,6 @@ export type DefaultConfigProps = {
    * `'Public Sans', sans-serif` (default)
    */
   fontFamily: FontFamily;
-
-  /**
-   * The props used for display menu-items with multi-language.
-   * We provide static below languages according to 'react-intl' options - https://www.npmjs.com/package/react-intl
-   * 'en' (default)
-   * 'fr'
-   * 'ro'
-   * 'zh'
-   */
-  i18n: I18n;
 
   /**
    * the props used for menu orientation (diffrent theme layout).
@@ -104,7 +95,6 @@ export type DefaultConfigProps = {
 
 export type CustomizationProps = {
   fontFamily: FontFamily;
-  i18n: I18n;
   miniDrawer: boolean;
   container: boolean;
   menuOrientation: MenuOrientation;
@@ -112,7 +102,6 @@ export type CustomizationProps = {
   presetColor: PresetColor;
   themeDirection: ThemeDirection;
   onChangeContainer: VoidFunction;
-  onChangeLocalization: (lang: I18n) => void;
   onChangeMode: (mode: ThemeMode) => void;
   onChangePresetColor: (theme: PresetColor) => void;
   onChangeDirection: (direction: ThemeDirection) => void;
@@ -120,3 +109,17 @@ export type CustomizationProps = {
   onChangeMenuOrientation: (menuOrientation: MenuOrientation) => void;
   onChangeFontFamily: (fontFamily: FontFamily) => void;
 };
+
+// ==============================|| THEME CONFIG  ||============================== //
+
+const config: DefaultConfigProps = {
+  fontFamily: `'Public Sans', sans-serif`,
+  menuOrientation: MenuOrientation.VERTICAL,
+  miniDrawer: false,
+  container: true,
+  mode: ThemeMode.LIGHT,
+  presetColor: 'default',
+  themeDirection: ThemeDirection.LTR
+};
+
+export default config;

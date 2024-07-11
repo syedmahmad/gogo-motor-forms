@@ -1,11 +1,12 @@
-import { forwardRef, CSSProperties, ReactNode, Ref } from 'react';
+'use client';
+
+import { CSSProperties, ReactNode } from 'react';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import { Card, CardContent, CardHeader, Divider, Typography, CardProps, CardHeaderProps, CardContentProps } from '@mui/material';
 
 // types
-import { KeyedObject } from '../types/root';
 import { ThemeMode } from '../types/config';
 
 // header style
@@ -16,7 +17,7 @@ const headerSX = {
 
 // ==============================|| CUSTOM - MAIN CARD ||============================== //
 
-export interface MainCardProps extends KeyedObject {
+export interface MainCardProps {
   border?: boolean;
   boxShadow?: boolean;
   children: ReactNode | string;
@@ -28,7 +29,7 @@ export interface MainCardProps extends KeyedObject {
   divider?: boolean;
   sx?: CardProps['sx'];
   secondary?: CardHeaderProps['action'];
-  shadow?: string;
+  shadow?: any;
   elevation?: number;
   title?: ReactNode | string;
   modal?: boolean;
@@ -53,7 +54,6 @@ const MainCard =
       modal = false,
       ...others
     }: MainCardProps,
-    ref: Ref<HTMLDivElement>
   ) => {
     const theme = useTheme();
     boxShadow = theme.palette.mode === ThemeMode.DARK ? boxShadow || true : boxShadow;
@@ -61,7 +61,6 @@ const MainCard =
     return (
       <Card
         elevation={elevation || 0}
-        ref={ref}
         {...others}
         sx={{
           position: 'relative',

@@ -11,7 +11,7 @@ const initialState: MenuProps = {
   openItem: ['dashboard'],
   openComponent: 'buttons',
   selectedID: null,
-  drawerOpen: false,
+  drawerOpen: true,
   componentDrawerOpen: true,
   menu: {},
   error: null

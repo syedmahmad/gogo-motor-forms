@@ -16,9 +16,6 @@ import {
   useMediaQuery
 } from '@mui/material';
 
-// third-party
-import { FormattedMessage } from 'react-intl';
-
 // project import
 import NavItem from './NavItem';
 import NavCollapse from './NavCollapse';
@@ -250,9 +247,9 @@ const NavGroup = ({ item, lastItem, remItems, lastItemId, setSelectedItems, sele
             item.title &&
             drawerOpen && (
               <Box sx={{ pl: 3, mb: 1.5 }}>
-                <Typography variant="subtitle2" color={theme.palette.mode === ThemeMode.DARK ? 'textSecondary' : 'text.secondary'}>
+                {/* <Typography variant="subtitle2" color={theme.palette.mode === ThemeMode.DARK ? 'textSecondary' : 'text.secondary'}>
                   {item.title}
-                </Typography>
+                </Typography> */}
                 {item.caption && (
                   <Typography variant="caption" color="secondary">
                     {item.caption}
@@ -297,7 +294,7 @@ const NavGroup = ({ item, lastItem, remItems, lastItemId, setSelectedItems, sele
                   variant="body1"
                   color={selectedID === currentItem.id ? theme.palette.primary.main : theme.palette.secondary.dark}
                 >
-                  {currentItem.id === lastItemId ? <FormattedMessage id="More Items" /> : currentItem.title}
+                  {currentItem.id === lastItemId ? "More Items" : currentItem.title}
                 </Typography>
               }
             />

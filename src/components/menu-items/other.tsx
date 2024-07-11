@@ -1,6 +1,3 @@
-// third-party
-import { FormattedMessage } from 'react-intl';
-
 // assets
 import { ChromeOutlined, QuestionOutlined, DeploymentUnitOutlined } from '@ant-design/icons';
 
@@ -18,38 +15,52 @@ const icons = {
 
 const other: NavItemType = {
   id: 'dashboard',
-  title: <FormattedMessage id="dashboard" />,
+  title: "dashboard",
   type: 'group',
   children: [
     {
       id: 'dashboard',
-      title: <FormattedMessage id="dashboard" />,
+      title: "dashboard",
       type: 'item',
       url: '/dashboard',
       icon: icons.ChromeOutlined
     },
     {
-      id: 'documentation',
-      title: <FormattedMessage id="documentation" />,
+      id: 'user-management',
+      title: "user-management",
       type: 'item',
-      url: 'https://codedthemes.gitbook.io/mantis/',
+      url: '/user-management',
       icon: icons.QuestionOutlined,
-      external: true,
-      target: true,
-      chip: {
-        label: 'gitbook',
-        color: 'secondary',
-        size: 'small'
-      }
     },
     {
-      id: 'roadmap',
-      title: <FormattedMessage id="roadmap" />,
-      type: 'item',
-      url: 'https://codedthemes.gitbook.io/mantis/roadmap',
+      id: 'form-management',
+      title: "form-management",
+      type: 'collapse',
+      url: '/form-management',
       icon: icons.DeploymentUnitOutlined,
-      external: true,
-      target: true
+      children: [
+        {
+          id: 'dashboard',
+          title: "dashboard",
+          type: 'item',
+          url: '/dashboard',
+          icon: icons.ChromeOutlined
+        },
+        {
+          id: 'user-management',
+          title: "user-management",
+          type: 'item',
+          url: 'user-management',
+          icon: icons.QuestionOutlined,
+        },
+        {
+          id: 'form-management',
+          title: "form-management",
+          type: 'item',
+          url: 'form-management',
+          icon: icons.DeploymentUnitOutlined,
+        }
+      ]
     }
   ]
 };

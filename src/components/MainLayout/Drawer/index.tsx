@@ -9,7 +9,7 @@ import DrawerHeader from './DrawerHeader';
 import DrawerContent from './DrawerContent';
 import MiniDrawerStyled from './MiniDrawerStyled';
 
-import { DRAWER_WIDTH } from '../../../config';
+import { DRAWER_WIDTH } from '../../../types/config';
 import { dispatch, useSelector } from '../../../store';
 import { openDrawer } from '../../../store/reducers/menu';
 

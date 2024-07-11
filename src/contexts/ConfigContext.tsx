@@ -1,17 +1,16 @@
 import { createContext, ReactNode } from 'react';
 
 // project import
-import config from '../config';
+import config from '@/src/types/config';
 import useLocalStorage from '../../src/hooks/useLocalStorage';
 
 // types
-import { CustomizationProps, FontFamily, I18n, MenuOrientation, PresetColor, ThemeDirection, ThemeMode } from '../../src/types/config';
+import { CustomizationProps, FontFamily, MenuOrientation, PresetColor, ThemeDirection, ThemeMode } from '../../src/types/config';
 
 // initial state
 const initialState: CustomizationProps = {
   ...config,
   onChangeContainer: () => {},
-  onChangeLocalization: (lang: I18n) => {},
   onChangeMode: (mode: ThemeMode) => {},
   onChangePresetColor: (theme: PresetColor) => {},
   onChangeDirection: (direction: ThemeDirection) => {},
@@ -35,13 +34,6 @@ function ConfigProvider({ children }: ConfigProviderProps) {
     setConfig({
       ...config,
       container: !config.container
-    });
-  };
-
-  const onChangeLocalization = (lang: I18n) => {
-    setConfig({
-      ...config,
-      i18n: lang
     });
   };
 
@@ -92,7 +84,6 @@ function ConfigProvider({ children }: ConfigProviderProps) {
       value={{
         ...config,
         onChangeContainer,
-        onChangeLocalization,
         onChangeMode,
         onChangePresetColor,
         onChangeDirection,

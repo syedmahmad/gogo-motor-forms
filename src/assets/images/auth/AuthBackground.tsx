@@ -1,9 +1,11 @@
+'use client';
+
 // material-ui
 import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
 // types
-import { ThemeDirection, ThemeMode } from 'types/config';
+import { ThemeMode } from '@/src/types/config';
 
 // ==============================|| AUTH BLUR BACK SVG ||============================== //
 
@@ -16,7 +18,7 @@ const AuthBackground = () => {
         filter: 'blur(18px)',
         zIndex: -1,
         bottom: 0,
-        transform: theme.direction === ThemeDirection.RTL ? 'rotate(180deg)' : 'inherit'
+        transform: 'inherit'
       }}
     >
       <svg width="100%" height="calc(100vh - 175px)" viewBox="0 0 405 809" fill="none" xmlns="http://www.w3.org/2000/svg">

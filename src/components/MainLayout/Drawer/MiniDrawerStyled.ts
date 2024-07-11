@@ -3,7 +3,7 @@ import { styled, Theme, CSSObject } from '@mui/material/styles';
 import Drawer from '@mui/material/Drawer';
 
 // project import
-import { DRAWER_WIDTH } from '../../../config';
+import { DRAWER_WIDTH } from '../../../types/config';
 
 // types
 import { ThemeMode } from '../../../types/config';

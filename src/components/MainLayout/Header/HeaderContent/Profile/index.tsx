@@ -3,19 +3,16 @@ import { useRouter } from 'next/navigation';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Box, ButtonBase, CardContent, ClickAwayListener, Grid, Paper, Popover, Popper, Stack, Tab, Tabs, Tooltip, Typography } from '@mui/material';
+import { Box, ButtonBase, CardContent, Grid, Paper, Popover, Stack, Tooltip, Typography } from '@mui/material';
 
 // project import
 import ProfileTab from './ProfileTab';
-import SettingTab from './SettingTab';
 import Avatar from '../../../../@extended/Avatar';
-import MainCard from '../../../../MainCard';
-import Transitions from '../../../../@extended/Transitions';
 import IconButton from '../../../../@extended/IconButton';
 
 // assets
 import avatar1 from '../../../../../assets/images/users/avatar-1.png';
-import { LogoutOutlined, SettingOutlined, UserOutlined } from '@ant-design/icons';
+import { LogoutOutlined } from '@ant-design/icons';
 
 // types
 import { ThemeMode } from '../../../../../types/config';
@@ -101,7 +98,7 @@ const Profile = () => {
       >
         <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
           {/* @ts-ignore */}
-          <Avatar src="@/app/src/assets/images/users/avatar-1.png" size="xs" />
+          <Avatar src={avatar1} size="xs" />
           <Typography variant="subtitle1">JWT User</Typography>
         </Stack>
       </ButtonBase>
