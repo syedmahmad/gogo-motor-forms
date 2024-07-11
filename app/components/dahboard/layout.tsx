@@ -1,8 +1,13 @@
 'use client';
 import { usePathname } from 'next/navigation';
+import ThemeCustomization from '../../themes';
+import Snackbar from '@/app/components/@extended/Snackbar';
+import Notistack from '@/app/components/third-party/Notistack';
+import Locales from '@/app/components/Locales';
 import "@/styles/globals.css";
-import { Drawer, Box, Toolbar, Container } from "@mui/material";
-import Footer from '@/app/components/footer';
+import { store } from '@/app/store'
+import { Provider as ReduxProvider } from 'react-redux';
+import MainLayout from '../MainLayout';
 
 export default function DashboardLayout({
   children,
@@ -17,30 +22,23 @@ export default function DashboardLayout({
   
   return (
     <body>
+      
             {isLoginRoute ? (
               <main>{children}</main>
               ) : (
-                <Box sx={{ display: 'flex', width: '100%' }}>
-                {/* <Header /> */}
-                {/* {!isHorizontal ? <Drawer /> : <HorizontalBar />} */}
-                <Drawer />
-                <Box component="main" sx={{ width: 'calc(100% - 260px)', flexGrow: 1, p: { xs: 2, sm: 3 } }}>
-                  <Toolbar sx={{ mt: isHorizontal ? 8 : 'inherit' }} />
-                  <Container
-                    maxWidth={container ? 'xl' : false}
-                    sx={{
-                      ...(container && { px: { xs: 0, sm: 2 } }),
-                      position: 'relative',
-                      minHeight: 'calc(100vh - 110px)',
-                      display: 'flex',
-                      flexDirection: 'column'
-                    }}
-                  >
-                    {children}
-                    <Footer />
-                  </Container>
-                </Box>
-              </Box>)
+                <ReduxProvider store={store}>
+                <ThemeCustomization>
+                  <Locales>
+                  <Notistack>
+                    <MainLayout>
+                      <Snackbar />
+                      {children}
+                    </MainLayout>
+                  </Notistack>
+                  </Locales>
+                </ThemeCustomization>
+                </ReduxProvider>
+                )
             }
           </body>
   );
