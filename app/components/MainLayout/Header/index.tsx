@@ -7,30 +7,29 @@ import { AppBar, Toolbar, useMediaQuery, AppBarProps } from '@mui/material';
 // project import
 import AppBarStyled from './AppBarStyled';
 import HeaderContent from './HeaderContent';
-import IconButton from 'components/@extended/IconButton';
+import IconButton from '../../@extended/IconButton';
 
-// import useConfig from 'hooks/useConfig';
-// import { dispatch, useSelector } from 'store';
-// import { openDrawer } from 'store/reducers/menu';
+import useConfig from '../../../hooks/useConfig';
+import { dispatch, useSelector } from '../../../store';
+import { openDrawer } from '../../../store/reducers/menu';
 
 // assets
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 
 // types
-import { MenuOrientation, ThemeMode } from '../theme/config';
+import { MenuOrientation, ThemeMode } from '../../../types/config';
 
 // ==============================|| MAIN LAYOUT - HEADER ||============================== //
 
 const Header = () => {
   const theme = useTheme();
   const downLG = useMediaQuery(theme.breakpoints.down('lg'));
-//   const { menuOrientation } = useConfig();
+  const { menuOrientation } = useConfig();
 
-//   const menu = useSelector((state: any) => state.menu);
-//   const { drawerOpen } = menu;
-    const drawerOpen = true;
+  const menu = useSelector((state) => state.menu);
+  const { drawerOpen } = menu;
 
-  const isHorizontal = true;
+  const isHorizontal = menuOrientation === MenuOrientation.HORIZONTAL && !downLG;
 
   // header content
   const headerContent = useMemo(() => <HeaderContent />, []);
@@ -44,8 +43,7 @@ const Header = () => {
       {!isHorizontal ? (
         <IconButton
           aria-label="open drawer"
-          //onClick={() => dispatch(openDrawer(!drawerOpen))}
-          onClick={() => alert('in progress')}
+          onClick={() => dispatch(openDrawer(!drawerOpen))}
           edge="start"
           color="secondary"
           variant="light"
