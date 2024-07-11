@@ -1,9 +1,9 @@
-import Login from '@/app/components/login';
+import Login from '@/src/components/login';
 import Image from "next/image";
 import { Grid, Box } from '@mui/material';
 import { Metadata } from 'next';
-import styles from "@/app/components/login/style.module.scss";
-import sideauth from "@/assets/images/side_auth.png";
+import styles from "@/src/components/login/style.module.scss";
+import sideauth from "@/src/assets/images/side_auth.png";
  
 export const metadata: Metadata = {
   title: 'Login',

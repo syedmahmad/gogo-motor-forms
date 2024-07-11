@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { AppRouterCacheProvider } from '@mui/material-nextjs/v13-appRouter';
 import { merriweather, poppins } from "@/styles/fonts";
 import "@/styles/globals.css";
-import DashboardLayout from '@/app/components/dahboard/layout';
+import DashboardLayout from '@/src/components/dahboard/layout';
 
 /**
  * 2 types of metadata.
@@ -13,7 +13,8 @@ export const metadata: Metadata = {
   title: "GOGO Form Management App",
   description: "We can control the all forms here. For example, inspection form request etc.",
   icons: {
-    icon: `${process.env.NEXT_PUBLIC_CDN_URL}/b2cpages/favicon.ico`,
+    icon: '@/app/assets/images/logo4.png'
+    // icon: `${process.env.NEXT_PUBLIC_CDN_URL}/b2cpages/favicon.ico`,
   },
 };
 
