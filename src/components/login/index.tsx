@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import styles from "./style.module.scss";
-import logo from "@/src/assets/images/gogo-motors.svg";
+import logo from "@/assets/images/gogo-motors.svg";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 // import { useDispatch } from "react-redux";

@@ -1,7 +1,7 @@
 /**
  * Password validator for login pages
  */
-import { NumbColorFunc, StringBoolFunc, StringNumFunc } from '@/src/types/password';
+import { NumbColorFunc, StringBoolFunc, StringNumFunc } from '@/types/password';
 
 // has number
 const hasNumber: StringBoolFunc = (number) => new RegExp(/[0-9]/).test(number);

@@ -1,15 +1,14 @@
 // assets
-import { ChromeOutlined, QuestionOutlined, DeploymentUnitOutlined } from '@ant-design/icons';
+import { DashboardOutlined, 
+  UsergroupAddOutlined, 
+  SnippetsOutlined,
+  SlidersOutlined,
+  FormOutlined
+ } from '@ant-design/icons';
 
 // type
 import { NavItemType } from '../../types/menu';
 
-// icons
-const icons = {
-  ChromeOutlined,
-  QuestionOutlined,
-  DeploymentUnitOutlined
-};
 
 // ==============================|| MENU ITEMS - SUPPORT ||============================== //
 
@@ -23,43 +22,36 @@ const other: NavItemType = {
       title: "dashboard",
       type: 'item',
       url: '/dashboard',
-      icon: icons.ChromeOutlined
+      icon: DashboardOutlined
     },
     {
       id: 'user-management',
       title: "user-management",
       type: 'item',
       url: '/user-management',
-      icon: icons.QuestionOutlined,
+      icon: UsergroupAddOutlined,
     },
     {
       id: 'form-management',
       title: "form-management",
       type: 'collapse',
       url: '/form-management',
-      icon: icons.DeploymentUnitOutlined,
+      icon: SnippetsOutlined,
       children: [
         {
-          id: 'dashboard',
-          title: "dashboard",
+          id: 'categories',
+          title: "categories",
           type: 'item',
-          url: '/dashboard',
-          icon: icons.ChromeOutlined
+          url: '/categories',
+          icon: SlidersOutlined
         },
         {
-          id: 'user-management',
-          title: "user-management",
+          id: 'forms',
+          title: "forms",
           type: 'item',
-          url: 'user-management',
-          icon: icons.QuestionOutlined,
+          url: 'forms',
+          icon: FormOutlined,
         },
-        {
-          id: 'form-management',
-          title: "form-management",
-          type: 'item',
-          url: 'form-management',
-          icon: icons.DeploymentUnitOutlined,
-        }
       ]
     }
   ]

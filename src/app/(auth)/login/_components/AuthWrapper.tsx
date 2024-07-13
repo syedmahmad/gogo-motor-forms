@@ -6,11 +6,11 @@ import Image from "next/image";
 
 // project import
 // import AuthFooter from 'components/cards/AuthFooter';
-import logo3 from '@/src/assets/images/logo3.png';
+import logo3 from '@/assets/images/logo3.png';
 import AuthCard from './AuthCard';
 
 // assets
-import AuthBackground from '@/src/assets/images/auth/AuthBackground';
+import AuthBackground from '@/assets/images/auth/AuthBackground';
 
 interface Props {
   children: ReactNode;

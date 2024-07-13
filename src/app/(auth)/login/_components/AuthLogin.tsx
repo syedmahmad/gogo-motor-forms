@@ -22,8 +22,8 @@ import * as Yup from 'yup';
 import { Formik } from 'formik';
 
 // project import
-import IconButton from '@/src/components/@extended/IconButton';
-import AnimateButton from '@/src/components/@extended/AnimateButton';
+import IconButton from '@/components/@extended/IconButton';
+import AnimateButton from '@/components/@extended/AnimateButton';
 
 // import useAuth from 'hooks/useAuth';
 // import useScriptRef from 'hooks/useScriptRef';
@@ -52,7 +52,7 @@ const AuthLogin = () => {
     <>
       <Formik
         initialValues={{
-          email: 'info@codedthemes.com',
+          email: 'admin@petromin.com',
           password: '123456',
           submit: null
         }}

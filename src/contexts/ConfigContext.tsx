@@ -1,7 +1,7 @@
 import { createContext, ReactNode } from 'react';
 
 // project import
-import config from '@/src/types/config';
+import config from '@/types/config';
 import useLocalStorage from '../../src/hooks/useLocalStorage';
 
 // types

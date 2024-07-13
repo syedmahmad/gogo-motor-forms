@@ -5,7 +5,7 @@ import { Theme } from '@mui/material/styles';
 import { Box } from '@mui/material';
 
 // project import
-import MainCard, { MainCardProps } from '@/src/components/MainCard';
+import MainCard, { MainCardProps } from '@/components/MainCard';
 
 // ==============================|| AUTHENTICATION - CARD WRAPPER ||============================== //
 

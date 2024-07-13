@@ -1,12 +1,12 @@
 'use client';
 import { usePathname } from 'next/navigation';
-import ThemeCustomization from '@/src/themes';
-import Snackbar from '@/src/components/@extended/Snackbar';
-import Notistack from '@/src/components/third-party/Notistack';
-import { store } from '@/src/store'
+import ThemeCustomization from '@/themes';
+import Snackbar from '@/components/@extended/Snackbar';
+import Notistack from '@/components/third-party/Notistack';
+import { store } from '@/store'
 import { Provider as ReduxProvider } from 'react-redux';
 import MainLayout from '../MainLayout';
-import "@/styles/globals.css";
+import "../../../styles/globals.css";
 
 export default function DashboardLayout({
   children,

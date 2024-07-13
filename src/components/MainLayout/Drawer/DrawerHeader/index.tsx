@@ -4,8 +4,8 @@ import { Link } from '@mui/material';
 // project import
 import DrawerHeaderStyled from './DrawerHeaderStyled';
 import Image from "next/image";
-import logo3 from '@/src/assets/images/logo3.png';
-import logo4 from '@/src/assets/images/logo4.png';
+import logo3 from '@/assets/images/logo3.png';
+import logo4 from '@/assets/images/logo4.png';
 
 // types
 import { MenuOrientation } from '../../../../types/config';

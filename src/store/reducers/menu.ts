@@ -9,7 +9,7 @@ import { MenuProps } from '../../../src/types/menu';
 // initial state
 const initialState: MenuProps = {
   openItem: ['dashboard'],
-  openComponent: 'buttons',
+  openComponent: 'buttons', 
   selectedID: null,
   drawerOpen: true,
   componentDrawerOpen: true,

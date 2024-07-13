@@ -99,7 +99,7 @@ const Profile = () => {
         <Stack direction="row" spacing={2} alignItems="center" sx={{ p: 0.5 }}>
           {/* @ts-ignore */}
           <Avatar src={avatar1} size="xs" />
-          <Typography variant="subtitle1">JWT User</Typography>
+          <Typography variant="subtitle1">Admin User</Typography>
         </Stack>
       </ButtonBase>
       <Popover
@@ -129,7 +129,7 @@ const Profile = () => {
                       {/* @ts-ignore */}
                       <Avatar src={avatar1} sx={{ width: 32, height: 32 }} />
                       <Stack>
-                        <Typography variant="h6">JWT User</Typography>
+                        <Typography variant="h6">Admin User</Typography>
                       </Stack>
                     </Stack>
                   </Grid>
