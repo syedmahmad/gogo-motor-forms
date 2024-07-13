@@ -4,13 +4,12 @@ import { useLayoutEffect, useState } from 'react';
 import { Box, Typography } from '@mui/material';
 
 // project import
-import NavGroup from './NavGroup';
-import menuItem from '../../../../menu-items';
+import menuItems from '../menu-items';
 
-import { useSelector } from '../../../../../store';
+import { useSelector } from '@/store';
 
-// types
-import { NavItemType } from '../../../../../types/menu';
+import NavItem from './NavItem';
+import NavCollapse from './NavCollapse';
 
 // ==============================|| DRAWER CONTENT - NAVIGATION ||============================== //
 
@@ -18,51 +17,28 @@ const Navigation = () => {
   const { drawerOpen } = useSelector((state) => state.menu);
   const [selectedItems, setSelectedItems] = useState<string | undefined>('');
   const [selectedLevel, setSelectedLevel] = useState<number>(0);
-  const [menuItems, setMenuItems] = useState<{ items: NavItemType[] }>({ items: [] });
 
-  useLayoutEffect(() => {
-    setMenuItems(menuItem);
-    // eslint-disable-next-line
-  }, [menuItem]);
-
-  const lastItem = null;
-  let lastItemIndex = menuItems.items.length - 1;
-  let remItems: NavItemType[] = [];
-  let lastItemId: string;
-
-  //  first it checks menu item is more than giving HORIZONTAL_MAX_ITEM after that get lastItemid by giving horizontal max
-  // item and it sets horizontal menu by giving horizontal max item lastly slice menuItem from array and set into remItems
-
-  if (lastItem && lastItem < menuItems.items.length) {
-    lastItemId = menuItems.items[lastItem - 1].id!;
-    lastItemIndex = lastItem - 1;
-    remItems = menuItems.items.slice(lastItem - 1, menuItems.items.length).map((item) => ({
-      title: item.title,
-      elements: item.children,
-      icon: item.icon
-    }));
-  }
-
-  const navGroups = menuItems.items.slice(0, lastItemIndex + 1).map((item) => {
+  const navGroups = menuItems.items.map((item) => {
     switch (item.type) {
-      case 'group':
+      case 'collapse':
         return (
-          <NavGroup
+          <NavCollapse
             key={item.id}
+            menu={item}
+            level={1}
+            parentId={item.id!}
             setSelectedItems={setSelectedItems}
             setSelectedLevel={setSelectedLevel}
             selectedLevel={selectedLevel}
             selectedItems={selectedItems}
-            lastItem={lastItem!}
-            remItems={remItems}
-            lastItemId={lastItemId}
-            item={item}
           />
         );
+      case 'item':
+        return <NavItem key={item.id} item={item} level={1} />;
       default:
         return (
           <Typography key={item.id} variant="h6" color="error" align="center">
-            Fix - Navigation Group
+            Menu Items Error
           </Typography>
         );
     }

@@ -1,7 +1,7 @@
 'use client';
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 
 // assets
 import {
@@ -17,8 +17,9 @@ const DashboardPage = () => {
   const theme = useTheme();
 
   return (
-    <Grid container spacing={3}>
-    
+    <>
+    <Typography variant="h2" mt={5}>Dashboard</Typography>
+    <Grid container spacing={3} mt={1}>
       <Grid item xs={12} lg={4} sm={6}>
         <Metrix
           primary="Revenue"
@@ -47,6 +48,7 @@ const DashboardPage = () => {
         />
       </Grid>
     </Grid>
+    </>
   );
 };
 

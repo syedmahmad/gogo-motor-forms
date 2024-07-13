@@ -13,7 +13,7 @@ const userData = [
   { id: 6, name: 'Frank', age: 50, city: 'Houston' },
 ];
 
-const UserManagement = () => {
+const BasicTable = () => {
     const columns = React.useMemo(
         () => [
             { Header: 'ID', accessor: 'id' },
@@ -48,7 +48,7 @@ const UserManagement = () => {
 
   return (
     <>
-    <Typography variant="h2" mt={5}>Users</Typography>
+    <Typography variant="h2" mt={5}>Forms</Typography>
     <Grid container spacing={0} mt={1}>
       <Grid item xs={12}>
         <TableContainer component={Paper}>
@@ -96,4 +96,4 @@ const UserManagement = () => {
   );
 };
 
-export default UserManagement;
+export default BasicTable;

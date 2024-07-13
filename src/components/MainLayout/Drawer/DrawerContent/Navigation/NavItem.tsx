@@ -4,17 +4,17 @@ import Link from 'next/link';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Avatar, Chip, ListItemButton, ListItemIcon, ListItemText, Typography, useMediaQuery } from '@mui/material';
+import { ListItemButton, ListItemIcon, 
+  ListItemText, Typography, useMediaQuery } from '@mui/material';
 
 // project import
-import Dot from '../../../../@extended/Dot';
 import useConfig from '../../../../../hooks/useConfig';
 import { dispatch, useSelector } from '../../../../../store';
 import { activeItem, openDrawer } from '../../../../../store/reducers/menu';
 
 // types
 import { LinkTarget, NavItemType } from '../../../../../types/menu';
-import { MenuOrientation, ThemeMode } from '../../../../../types/config';
+import { ThemeMode } from '../../../../../types/config';
 
 // ==============================|| NAVIGATION - LIST ITEM ||============================== //
 
@@ -29,8 +29,6 @@ const NavItem = ({ item, level }: Props) => {
   const menu = useSelector((state) => state.menu);
   const matchDownLg = useMediaQuery(theme.breakpoints.down('lg'));
   const { drawerOpen, openItem } = menu;
-
-  const downLG = useMediaQuery(theme.breakpoints.down('lg'));
 
   const { menuOrientation } = useConfig();
   let itemTarget: LinkTarget = '_self';
@@ -57,18 +55,6 @@ const NavItem = ({ item, level }: Props) => {
 
   // active menu item on page load
   useEffect(() => {
-    if (pathname && pathname.includes('product-details')) {
-      if (item.url && item.url.includes('product-details')) {
-        dispatch(activeItem({ openItem: [item.id] }));
-      }
-    }
-
-    if (pathname && pathname.includes('kanban')) {
-      if (item.url && item.url.includes('kanban')) {
-        dispatch(activeItem({ openItem: [item.id] }));
-      }
-    }
-
     if (pathname === item.url) {
       dispatch(activeItem({ openItem: [item.id] }));
     }
@@ -80,8 +66,7 @@ const NavItem = ({ item, level }: Props) => {
 
   return (
     <>
-      {menuOrientation === MenuOrientation.VERTICAL || downLG ? (
-        <ListItemButton
+      <ListItemButton
           {...listItemProps}
           disabled={item.disabled}
           selected={isSelected}
@@ -146,7 +131,7 @@ const NavItem = ({ item, level }: Props) => {
               {itemIcon}
             </ListItemIcon>
           )}
-          {(drawerOpen || (!drawerOpen && level !== 1)) && (
+          {drawerOpen && (
             <ListItemText
               primary={
                 <Typography variant="h6" sx={{ color: isSelected ? iconSelectedColor : textColor }}>
@@ -155,118 +140,7 @@ const NavItem = ({ item, level }: Props) => {
               }
             />
           )}
-          {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
-            <Chip
-              color={item.chip.color}
-              variant={item.chip.variant}
-              size={item.chip.size}
-              label={item.chip.label}
-              avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
-            />
-          )}
         </ListItemButton>
-      ) : (
-        <ListItemButton
-          {...listItemProps}
-          disabled={item.disabled}
-          selected={isSelected}
-          sx={{
-            zIndex: 1201,
-            ...(drawerOpen && {
-              '&:hover': {
-                bgcolor: 'transparent'
-              },
-              '&.Mui-selected': {
-                bgcolor: 'transparent',
-                color: iconSelectedColor,
-                '&:hover': {
-                  color: iconSelectedColor,
-                  bgcolor: 'transparent'
-                }
-              }
-            }),
-            ...(!drawerOpen && {
-              '&:hover': {
-                bgcolor: 'transparent'
-              },
-              '&.Mui-selected': {
-                '&:hover': {
-                  bgcolor: 'transparent'
-                },
-                bgcolor: 'transparent'
-              }
-            })
-          }}
-        >
-          {itemIcon && (
-            <ListItemIcon
-              sx={{
-                minWidth: 36,
-                ...(!drawerOpen && {
-                  borderRadius: 1.5,
-                  width: 36,
-                  height: 36,
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  '&:hover': {
-                    bgcolor: 'transparent'
-                  }
-                }),
-                ...(!drawerOpen &&
-                  isSelected && {
-                    bgcolor: 'transparent',
-                    '&:hover': {
-                      bgcolor: 'transparent'
-                    }
-                  })
-              }}
-            >
-              {itemIcon}
-            </ListItemIcon>
-          )}
-
-          {!itemIcon && (
-            <ListItemIcon
-              sx={{
-                color: isSelected ? 'primary.main' : 'secondary.main',
-                ...(!drawerOpen && {
-                  borderRadius: 1.5,
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  '&:hover': {
-                    bgcolor: 'transparent'
-                  }
-                }),
-                ...(!drawerOpen &&
-                  isSelected && {
-                    bgcolor: 'transparent',
-                    '&:hover': {
-                      bgcolor: 'transparent'
-                    }
-                  })
-              }}
-            >
-              <Dot size={4} color={isSelected ? 'primary' : 'secondary'} />
-            </ListItemIcon>
-          )}
-          <ListItemText
-            primary={
-              <Typography variant="h6" color="inherit">
-                {item.title}
-              </Typography>
-            }
-          />
-          {(drawerOpen || (!drawerOpen && level !== 1)) && item.chip && (
-            <Chip
-              color={item.chip.color}
-              variant={item.chip.variant}
-              size={item.chip.size}
-              label={item.chip.label}
-              avatar={item.chip.avatar && <Avatar>{item.chip.avatar}</Avatar>}
-            />
-          )}
-        </ListItemButton>
-      )}
     </>
   );
 };
