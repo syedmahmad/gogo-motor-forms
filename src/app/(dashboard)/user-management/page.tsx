@@ -41,7 +41,7 @@ const UserManagement = () => {
     {
       columns,
       data: userData,
-      initialState: { pageIndex: 0, pageSize: 2 },
+      initialState: { pageIndex: 0, pageSize: 3 },
     },
     usePagination
   );
