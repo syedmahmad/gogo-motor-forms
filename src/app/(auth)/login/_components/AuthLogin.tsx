@@ -25,9 +25,6 @@ import { Formik } from 'formik';
 import IconButton from '@/components/@extended/IconButton';
 import AnimateButton from '@/components/@extended/AnimateButton';
 
-// import useAuth from 'hooks/useAuth';
-// import useScriptRef from 'hooks/useScriptRef';
-
 // assets
 import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
@@ -35,9 +32,6 @@ import { EyeOutlined, EyeInvisibleOutlined } from '@ant-design/icons';
 
 const AuthLogin = () => {
   const [checked, setChecked] = React.useState(false);
-
-//   const { login } = useAuth();
-//   const scriptedRef = useScriptRef();
 
   const [showPassword, setShowPassword] = React.useState(false);
   const handleClickShowPassword = () => {

@@ -4,7 +4,8 @@ import { CSSProperties, ReactNode } from 'react';
 
 // material-ui
 import { useTheme } from '@mui/material/styles';
-import { Card, CardContent, CardHeader, Divider, Typography, CardProps, CardHeaderProps, CardContentProps } from '@mui/material';
+import { Card, CardContent, CardHeader, Divider, Typography, 
+  CardProps, CardHeaderProps, CardContentProps } from '@mui/material';
 
 // types
 import { ThemeMode } from '../types/config';

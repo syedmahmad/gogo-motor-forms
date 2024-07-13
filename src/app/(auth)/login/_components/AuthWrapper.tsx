@@ -5,7 +5,6 @@ import { Box, Grid } from '@mui/material';
 import Image from "next/image";
 
 // project import
-// import AuthFooter from 'components/cards/AuthFooter';
 import logo3 from '@/assets/images/logo3.png';
 import AuthCard from './AuthCard';
 
@@ -52,7 +51,6 @@ const AuthWrapper = ({ children }: Props) => (
         </Grid>
       </Grid>
       <Grid item xs={12} sx={{ m: 3, mt: 1 }}>
-        {/* <AuthFooter /> */}
       </Grid>
     </Grid>
   </Box>

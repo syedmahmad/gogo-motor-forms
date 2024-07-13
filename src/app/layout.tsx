@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   title: "GOGO Form Management App",
   description: "We can control the all forms here. For example, inspection form request etc.",
   icons: {
-    icon: '@/assets/images/logo4.png'
+    icon: '/favicon.png'
     // icon: `${process.env.NEXT_PUBLIC_CDN_URL}/b2cpages/favicon.ico`,
   },
 };
