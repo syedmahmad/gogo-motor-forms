@@ -1,6 +1,7 @@
 // third-party
 import { configureStore } from '@reduxjs/toolkit';
-import { useDispatch as useAppDispatch, useSelector as useAppSelector, TypedUseSelectorHook } from 'react-redux';
+import { useDispatch as useAppDispatch, useSelector as useAppSelector, 
+  TypedUseSelectorHook } from 'react-redux';
 
 // project import
 import reducers from './reducers';
@@ -17,6 +18,7 @@ export type AppDispatch = typeof store.dispatch;
 
 const { dispatch } = store;
 
+// here we are exporting our selector and dispatch handlers too.
 const useDispatch = () => useAppDispatch<AppDispatch>();
 const useSelector: TypedUseSelectorHook<RootState> = useAppSelector;
 

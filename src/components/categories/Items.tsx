@@ -18,7 +18,7 @@ import AlertItemEdit from './AlertItemEdit';
 interface Props {
   item: any;
   index: number;
-  handleShowNextComponent: (_arg: any) => void;
+  handleShowNextComponent: (_arg1: any, _arg2?: string, _arg3?: string) => void;
 }
 
 const backImage = '@/src/assets/images/profile/'
@@ -42,10 +42,7 @@ const getDragWrapper = (
 // ==============================|| KANBAN BOARD - ITEMS ||============================== //
 
 const Items = ({ item, index, handleShowNextComponent }: Props) => {
-  console.log("item", item);
-  
   const theme = useTheme();
-
 
   const [anchorEl, setAnchorEl] = useState<Element | ((element: Element) => Element) | null | undefined>(null);
   const [anchorElEdit, setAnchorElEdit] = useState<Element | ((element: Element) => Element) | null | undefined>(null);
@@ -80,17 +77,27 @@ const Items = ({ item, index, handleShowNextComponent }: Props) => {
   };
 
   const handleClickItem = (item: any) => {
-    debugger;
     if (item.nextToShow === 'sub-category') {
       handleShowNextComponent(item?.subCategories)
     } else if (item.nextToShow === 'questions') {
       handleShowNextComponent(item?.questions)
+    } else if (item.nextToShow === 'questionType') {
+      handleShowNextComponent(item?.questionValue, item.questionType, item.score)
     } else if  (item.nextToShow === 'sub-questions') {
       handleShowNextComponent(item?.subQuestions)
     } else {
       // TODO: need to show alert
     }
   }
+
+  // const handleQuestionType = (item: any) => {
+  //   if (item.questionType === "text" || item.questionType === "image" || item.questionType === "doc") {
+  //     handleShowNextComponent(item?.questionValue, item.questionType)
+  //   } else if (item.questionType === "dropdown") {
+
+  //   } // need to handle other cases.
+  // }
+
   return (
         <div
           style={getDragWrapper(theme, `4px`)}

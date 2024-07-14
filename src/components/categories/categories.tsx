@@ -1,4 +1,5 @@
-"use client"
+"use client";
+
 import { CSSProperties, useState } from 'react';
 import { Typography, Box, Grid } from "@mui/material";
 import { useTheme, Theme } from '@mui/material/styles';
@@ -6,7 +7,7 @@ import AddItem from '@/components/categories/AddItem';
 import Items from '@/components/categories/Items';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 
-const Columns = ({ categoriesData, handleShowNextComponent }: any) => {
+const Categories = ({ categoriesData, handleShowNextComponent }: any) => {
   const theme = useTheme();
   // column drag wrapper
   const getDragWrapper = (
@@ -30,6 +31,7 @@ const Columns = ({ categoriesData, handleShowNextComponent }: any) => {
     };
   };
   
+  console.log("categoriesData", categoriesData);
   return(
     <Grid2
       container
@@ -55,4 +57,4 @@ const Columns = ({ categoriesData, handleShowNextComponent }: any) => {
   )
 }
 
-export default Columns;
+export default Categories;
