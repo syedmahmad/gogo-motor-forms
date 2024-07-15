@@ -30,7 +30,7 @@ const CategoriesPage = () => {
                     {
                         "Question": "Spare Wheel Cover - Missing",
                         "Question Type": "Text",
-                        "Question Value": "",
+                        "Question Value": [],
                         "Sub Questions": [],
                         "Score": 6
                     },
@@ -170,6 +170,12 @@ const CategoriesPage = () => {
   const categoryClickHandler = (item: any) => {
     setShowSubCategories(true);
     setSubCategoriesData(item);
+
+    // close all others cards.
+    setShowQuestions(false);
+    setShowQuestionType(false);
+    setShowSubQuestions(false);
+    setShowSubQuestionsDataTypes(false);
   }
 
   const [showQuestions, setShowQuestions] = useState(false);
@@ -177,6 +183,11 @@ const CategoriesPage = () => {
   const subCategoryClickHandler = (item: any) => {
     setShowQuestions(true);
     setQuestionsData(item);
+
+    // close all others cards.
+    setShowQuestionType(false);
+    setShowSubQuestions(false);
+    setShowSubQuestionsDataTypes(false);
   }
 
   const [showQuestionType, setShowQuestionType] = useState(false);
@@ -184,6 +195,8 @@ const CategoriesPage = () => {
   const questionClickHandler = (item: any) => {
     setShowQuestionType(true);
     setQuestionDataTypeData(item);
+    
+    // close all others cards.
     setShowSubQuestions(false);
     setShowSubQuestionsDataTypes(false);
   }
