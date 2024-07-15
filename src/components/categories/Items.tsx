@@ -123,14 +123,14 @@ const Items = ({ item, index, handleShowNextComponent }: Props) => {
             </Typography>
 
             <IconButton size="small" color="secondary" onClick={handleClickEdit} aria-controls="menu-comment" aria-haspopup="true">
-              <EditOutlined />
+              <EditOutlined style={{ color: theme.palette.primary.main }} />
             </IconButton>
             <IconButton size="small" color="secondary" onClick={handleClick} aria-controls="menu-comment" aria-haspopup="true">
-              <DeleteOutlined />
+              <DeleteOutlined style={{ color: theme.palette.error.main }} />
             </IconButton>
 
             <AlertItemDelete title={item?.name} open={Boolean(anchorEl)} handleClose={handleClose} />
-            <AlertItemEdit title={item?.name} open={Boolean(anchorElEdit)} handleClose={handleCloseEdit} />
+            <AlertItemEdit itemTitle={item?.name} open={Boolean(anchorElEdit)} handleClose={handleCloseEdit} />
           </Stack>
         </div>
   );

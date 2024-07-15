@@ -92,7 +92,7 @@ const AddItem = ({ columnId, name }: Props) => {
       )}
       {!addTaskBox && (
         <Grid item xs={12}>
-          <Button variant="dashed" color="secondary" fullWidth onClick={handleAddTaskChange}>
+          <Button variant="contained" color="secondary" fullWidth onClick={handleAddTaskChange}>
             Add {name}
           </Button>
         </Grid>

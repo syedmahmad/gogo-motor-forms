@@ -42,10 +42,10 @@ const SubQuestionDataTypes = ({ data, questionTypeClickHandler }: any) => {
                 </Typography>
 
                 <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true">
-                  <EditOutlined />
+                  <EditOutlined style={{ color: theme.palette.primary.main }} />
                 </IconButton>
                 <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true">
-                  <DeleteOutlined />
+                  <DeleteOutlined style={{ color: theme.palette.error.main }} />
                 </IconButton>
               </Stack>
             </div>
@@ -73,10 +73,10 @@ const SubQuestionDataTypes = ({ data, questionTypeClickHandler }: any) => {
                   </Typography>
 
                   <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true">
-                    <EditOutlined />
+                    <EditOutlined style={{ color: theme.palette.primary.main }} />
                   </IconButton>
                   <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true">
-                    <DeleteOutlined />
+                    <DeleteOutlined style={{ color: theme.palette.error.main }} />
                   </IconButton>
                 </Stack>
               </div>

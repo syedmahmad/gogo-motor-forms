@@ -2,15 +2,39 @@
 
 import { Typography, Box, Stack, IconButton, Button, Grid } from "@mui/material";
 import { useTheme } from '@mui/material/styles';
-import AddItem from '@/components/categories/AddItem';
 import Grid2 from '@mui/material/Unstable_Grid2/Grid2';
 import { getWrapper, getInnerWrapper } from '@/components/categories/BoxStyles';
 import { DeleteOutlined, EditOutlined } from "@ant-design/icons";
+import AlertItemDelete from "./AlertItemDelete";
+import { useState } from "react";
+import AlertItemEdit from "./AlertItemEdit";
 
 const CategoriesData = ({ data, categoryClickHandler }: any) => {
   const theme = useTheme();
+  const [openDeleteModal, setOpenDeleteModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState<any>();
+  const [openEditModal, setOpenEditModal] = useState(false);
+
+  const handleClickDeleteIcon = (item: any) => {
+    setSelectedCategory(item)
+    setOpenDeleteModal(true)
+  }
+
+  const handleCloseDeleteModal = () => {
+    setOpenDeleteModal(false)
+  }
+
+  const handleClickEditIcon = (item: any) => {
+    setSelectedCategory(item)
+    setOpenEditModal(true)
+  }
+
+  const handleCloseEditModal = () => {
+    setOpenEditModal(false)
+  }
 
   return(
+    <>
     <Grid2
       container
       sx={{ display: 'flex', width: '100%', overflowX: 'auto' }}
@@ -44,11 +68,11 @@ const CategoriesData = ({ data, categoryClickHandler }: any) => {
                     {item?.Category}
                   </Typography>
 
-                  <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true">
-                    <EditOutlined />
+                  <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true" onClick={() => handleClickEditIcon(item)}>
+                    <EditOutlined style={{ color: theme.palette.primary.main }} />
                   </IconButton>
-                  <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true">
-                    <DeleteOutlined />
+                  <IconButton size="small" color="secondary" aria-controls="menu-comment" aria-haspopup="true" onClick={() => handleClickDeleteIcon(item)}>
+                    <DeleteOutlined style={{ color: theme.palette.error.main }} />
                   </IconButton>
                 </Stack>
               </div>
@@ -62,6 +86,24 @@ const CategoriesData = ({ data, categoryClickHandler }: any) => {
           </Box>
         </Grid2>
     </Grid2>
+
+    {selectedCategory && openDeleteModal && (
+      <AlertItemDelete
+        open={openDeleteModal}
+        handleClose={handleCloseDeleteModal}
+        title={selectedCategory?.Category}
+      />
+    )}
+
+    {selectedCategory && openEditModal && (
+      <AlertItemEdit
+        open={openEditModal}
+        handleClose={handleCloseEditModal}
+        itemTitle={selectedCategory?.Category}
+      />
+    )}
+
+    </>
   )
 }
 
