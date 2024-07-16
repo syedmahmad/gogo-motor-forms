@@ -50,6 +50,15 @@ const QuestionsData = ({ data, questionClickHandler }: any) => {
                     <DeleteOutlined style={{ color: theme.palette.error.main }} />
                   </IconButton>
                 </Stack>
+                <Stack direction="row" justifyContent="space-between" alignItems="center" sx={{ mb: -0.75 }}>
+                  <Typography
+                    onClick={() => categoryClickHandler(item)}
+                    variant="body1"
+                    color={theme.palette.primary.main}
+                  >
+                    View Details
+                  </Typography>
+                </Stack>
               </div>
             </Box>
           ))}
